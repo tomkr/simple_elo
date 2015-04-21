@@ -8,6 +8,12 @@ describe SimpleElo do
     expect(SimpleElo.calculate(player_rating, opponent_rating, k_factor, 1)).to eq(1510)
   end
 
+  it "calculates ratings for a match" do
+    player1 = {rating: 1500, k_factor: 20}
+    player2 = {rating: 1500, k_factor: 20}
+    expect(SimpleElo.calculate_match(player1, player2, 1)).to eq([1510, 1490])
+  end
+
   it "calculates the expected result" do
     expect(SimpleElo.expected(1500.0, 1500.0)).to eq(0.5)
   end
